@@ -1,37 +1,60 @@
 const choices = ["rock", "paper", "scissors"];
-const pChoice = playerChoice();
-const cChoice = computerChoice();
+let cResult = 0;
+let pResult = 0;
 
-function game()
+function main()
 {
-    verifyGameState(pChoice, cChoice);
+    playRound();
 }
 
+function buttonChoices()
+{
+    let pChoice = "";
+    const cChoice = computerChoice();
+    document.getElementById("rock").addEventListener("click", function()
+    {
+        pChoice = "rock";
+        console.log(verifyGameState(pChoice,cChoice));
+    })
+    document.getElementById("paper").addEventListener("click", function()
+    {
+        pChoice = "paper";
+        console.log(verifyGameState(pChoice,cChoice));
+    })
+    document.getElementById("scissors").addEventListener("click", function()
+    {
+        pChoice = "scissors";
+        console.log(verifyGameState(pChoice,cChoice));
+    })
+}
 
+function playRound()
+{
+    buttonChoices();
+}
 
 function verifyGameState(pChoice, cChoice)
 {
-    let winConditions =cChoice === "rock" && pChoice === "paper" || cChoice === "paper" && pChoice === "scissors" || cChoice === "scissors" && pChoice === "rock";
+    let winConditions = cChoice === "rock" && pChoice === "paper" || 
+                        cChoice === "paper" && pChoice === "scissors" || 
+                        cChoice === "scissors" && pChoice === "rock";
     if(cChoice === pChoice)
-    {
-        return console.log("It's a tie!" + " You chose the same throw as the computer.");
+    {   
+        return "It's a tie!" + " You chose the same throw as the computer.";
     }
     else if (winConditions)
     {
+        pResult++;
+        document.getElementById("playerresults").innerHTML = "Player Score: " + pResult;
         const winResult = pChoice;
         const capitalizedWinResult = winResult.charAt(0).toUpperCase() + winResult.slice(1);
-        return console.log("You win! " + capitalizedWinResult + " beats " + cChoice + ".");
+        return "You win! " + capitalizedWinResult + " beats " + cChoice + ".";
     }
     const lostResult = cChoice;
     const capitalizedLostResult = lostResult.charAt(0).toUpperCase() + lostResult.slice(1);
-    return console.log("You lost! " + capitalizedLostResult + " beats " + pChoice + ".");
-}
-
-function computerChoice()
-{
-    let input = choices[Math.floor((Math.random() * choices.length))];
-    console.log("This is the computers choice: " + input);
-    return input;   
+    cResult++;
+    document.getElementById("computerresults").innerHTML = "Computer Score: " + cResult;
+    return "You lost! " + capitalizedLostResult + " beats " + pChoice + ".";
 }
 
 function playerChoice()
@@ -43,7 +66,18 @@ function playerChoice()
         return input.toLowerCase();
     }
     return null;
-    
 }
 
-game();
+function computerChoice()
+    {
+        let input = choices[Math.floor((Math.random() * choices.length))];
+        console.log("This is the computers choice: " + input);
+        return input;   
+    }
+
+document.getElementById("playerresults").innerHTML = "Player Score: " + pResult;
+document.getElementById("computerresults").innerHTML = "Computer Score: " + cResult;
+
+
+main();
+computerChoice();

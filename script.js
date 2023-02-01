@@ -1,6 +1,7 @@
 const choices = ["rock", "paper", "scissors"];
 let cResult = 0;
 let pResult = 0;
+let resultOfWin = "";
 
 function main()
 {
@@ -14,20 +15,26 @@ function buttonChoices()
     document.getElementById("rock").addEventListener("click", function()
     {
         pChoice = "rock";
-        console.log(verifyGameState(pChoice,cChoice));
+        resultOfWin = (verifyGameState(pChoice,cChoice));
         cChoice = computerChoice();
+        document.getElementById("reportedResults").innerHTML = resultOfWin;
+
     })
     document.getElementById("paper").addEventListener("click", function()
     {
         pChoice = "paper";
-        console.log(verifyGameState(pChoice,cChoice));
+        resultOfWin = (verifyGameState(pChoice,cChoice));
         cChoice = computerChoice();
+        document.getElementById("reportedResults").innerHTML = resultOfWin;
+
     })
     document.getElementById("scissors").addEventListener("click", function()
     {
         pChoice = "scissors";
-        console.log(verifyGameState(pChoice,cChoice));
+        resultOfWin = (verifyGameState(pChoice,cChoice));
         cChoice = computerChoice();
+        document.getElementById("reportedResults").innerHTML = resultOfWin;
+
     })
 }
 
@@ -74,12 +81,16 @@ function playerChoice()
 function computerChoice()
     {
         let input = choices[Math.floor((Math.random() * choices.length))];
-        console.log("This is the computers choice: " + input);
+        console.log("This is the secret computers choice: " + input);
         return input;   
     }
 
+if(resultOfWin == 0)
+{
+
+}
+
 document.getElementById("playerresults").innerHTML = "Player Score: " + pResult;
 document.getElementById("computerresults").innerHTML = "Computer Score: " + cResult;
-
 
 main();

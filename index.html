@@ -1,22 +1,35 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>RPS Game</title>
-  <link rel="stylesheet" href="/style.css">
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <meta charset="UTF-8">
+    <title>RPS Game</title>
+    <link rel="stylesheet" href="/style.css">
 
-</head>
-<body>
-  <h1 id = "header">ROCK PAPER SCISSORS</h1>
-  <div class = "score">
-    <div id = "playerresults"></div>
-    <div id = "computerresults"></div>
-  </div>
-  <div class = choices>
-    <button id = "rock"><img id = "rock-icon" src="../images/rock.png" alt="rock">Rock</button>
-    <button id = "paper"><img id = "paper-icon" src="../images/paper.png" alt="rock">Paper</button>
-    <button id = "scissors"><img id = "scissors-icon" src="../images/scissors.png" alt="rock">Scissors</button>
-  </div>
-  <script src="./script.js"></script>
-</body>
-</html>
+  </head>
+  <body>
+    <div id = "top">
+      <h1 id = "header">ROCK PAPER SCISSORS</h1>
+    </div>
+    <div class = "score">
+      <div>
+        <div id = "playerresults"></div>
+        <div id = "computerresults"></div>
+      </div>
+        <div id = "reportedResults"></div>
+
+      
+    </div>
+    <div class = "choices">
+      <div class = "choices-container">
+        <button id = "rock"><img id = "rock-icon" src="../images/rock.png" alt="rock">Rock</button>
+      </div>
+      <div class = "choices-container">
+        <button id = "paper"><img id = "paper-icon" src="../images/paper.png" alt="rock">Paper</button>
+      </div>
+      <div class = "choices-container">
+        <button id = "scissors"><img id = "scissors-icon" src="../images/scissors.png" alt="rock">Scissors</button>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+  </html>

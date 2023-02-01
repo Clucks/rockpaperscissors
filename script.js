@@ -8,7 +8,7 @@ function main()
     playRound();
 }
 
-function buttonChoices()
+function playRound()
 {
     let pChoice = "";
     let cChoice = computerChoice();
@@ -18,6 +18,7 @@ function buttonChoices()
         resultOfWin = (verifyGameState(pChoice,cChoice));
         cChoice = computerChoice();
         document.getElementById("reportedResults").innerHTML = resultOfWin;
+        gameOfFive();
 
     })
     document.getElementById("paper").addEventListener("click", function()
@@ -26,6 +27,7 @@ function buttonChoices()
         resultOfWin = (verifyGameState(pChoice,cChoice));
         cChoice = computerChoice();
         document.getElementById("reportedResults").innerHTML = resultOfWin;
+        gameOfFive();
 
     })
     document.getElementById("scissors").addEventListener("click", function()
@@ -34,13 +36,34 @@ function buttonChoices()
         resultOfWin = (verifyGameState(pChoice,cChoice));
         cChoice = computerChoice();
         document.getElementById("reportedResults").innerHTML = resultOfWin;
+        gameOfFive();
 
     })
+    
 }
 
-function playRound()
-{
-    buttonChoices();
+function gameOfFive() {
+    if(cResult + pResult == 5 )
+    {
+        let alertWinner = ""
+        if(cResult > pResult)
+        {
+            alertWinner = "You lost overall with a score of: " + pResult + "-" + cResult;
+        }else{
+            alertWinner = "You won overall with a score of " + pResult + "-" + cResult;
+        }
+        alert(alertWinner);
+        cResult = 0;
+        pResult = 0;
+        document.getElementById("playerresults").innerHTML = "Player Score: " + pResult;
+        document.getElementById("computerresults").innerHTML = "Computer Score: " + cResult;
+        document.getElementById("reportedResults").innerHTML = "New Game";
+
+
+
+    }
+
+
 }
 
 function verifyGameState(pChoice, cChoice)

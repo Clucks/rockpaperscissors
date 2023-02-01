@@ -2,21 +2,21 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Page Title</title>
+  <title>RPS Game</title>
+  <link rel="stylesheet" href="/style.css">
+
 </head>
 <body>
-  <h1>ROCK PAPER SCISSORS</h1>
-  <div>
-    <button id = "rock">Rock</button>
-    <button id = "paper">Paper</button>
-    <button id = "scissors">Scissors</button>
+  <h1 id = "header">ROCK PAPER SCISSORS</h1>
+  <div class = "score">
+    <div id = "playerresults"></div>
+    <div id = "computerresults"></div>
   </div>
-  <div id = "playerresults">
+  <div class = choices>
+    <button id = "rock"><img id = "rock-icon" src="../images/rock.png" alt="rock">Rock</button>
+    <button id = "paper"><img id = "paper-icon" src="../images/paper.png" alt="rock">Paper</button>
+    <button id = "scissors"><img id = "scissors-icon" src="../images/scissors.png" alt="rock">Scissors</button>
   </div>
-  <div id = "computerresults">
-
-  </div>
-
   <script src="./script.js"></script>
 </body>
 </html>

@@ -10,21 +10,24 @@ function main()
 function buttonChoices()
 {
     let pChoice = "";
-    const cChoice = computerChoice();
+    let cChoice = computerChoice();
     document.getElementById("rock").addEventListener("click", function()
     {
         pChoice = "rock";
         console.log(verifyGameState(pChoice,cChoice));
+        cChoice = computerChoice();
     })
     document.getElementById("paper").addEventListener("click", function()
     {
         pChoice = "paper";
         console.log(verifyGameState(pChoice,cChoice));
+        cChoice = computerChoice();
     })
     document.getElementById("scissors").addEventListener("click", function()
     {
         pChoice = "scissors";
         console.log(verifyGameState(pChoice,cChoice));
+        cChoice = computerChoice();
     })
 }
 
@@ -80,4 +83,3 @@ document.getElementById("computerresults").innerHTML = "Computer Score: " + cRes
 
 
 main();
-computerChoice();
